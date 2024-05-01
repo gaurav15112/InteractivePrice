@@ -15,9 +15,10 @@ body {
 .container-outer {
   // padding: 20px;
   height: 100%;
-  background: linear-gradient(top, #f1f5fe 60%, $primary-color 40%);
-  background: linear-gradient(top, #f1f5fe 60%, $primary-color 40%);
-  background: linear-gradient(to bottom, #f1f5fe 60%, $primary-color 40%);
+
+  // background: linear-gradient(top, #f1f5fe 60%, $primary-color 40%);
+  // background: linear-gradient(top, #f1f5fe 60%, $primary-color 40%);
+  // background: linear-gradient(to bottom, #f1f5fe 60%, $primary-color 40%);
   // border: 1px solid red;
   // // background-color: $primary-color;
   // width: 100%;
@@ -27,7 +28,7 @@ body {
 
 .container-inner {
   padding: 20px;
-  border: 1px solid blue;
+  // border: 1px solid blue;
   max-width: 1440px;
   margin: auto;
 }
