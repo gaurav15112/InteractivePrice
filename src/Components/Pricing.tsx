@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "../styles/Pricing.module.scss";
 import { Urbanist, DM_Sans } from "next/font/google";
 import Image from "next/image";
 import TickSvg from "../../public/mdi_tick.svg";
+import Link from "next/link";
 const Pricing = () => {
+  const [isOpen, setOpen] = useState(false);
+
+  const HandletoggleButton = () => {
+    setOpen((isOpen) => !isOpen);
+  };
+
   return (
     <>
       <div className={style.price}>
@@ -11,7 +18,7 @@ const Pricing = () => {
         <div className="price_head">
           <div className="price_head__title">Simple,traffic-based pricing</div>
           <div className="price_head__subtitle">
-            Sign-up for our 30-day trial card required..
+            Sign-up for our 30-day trial no credit card required..
           </div>
         </div>
         {/* end heading section */}
@@ -44,19 +51,30 @@ const Pricing = () => {
               </div>
             </div>
             {/* end of progress bar */}
+
             <div className="price_content__wrapper_monthly-billing">
-              <div className="Bill">Monthly Billing</div>
+              <div className={`${isOpen ? "none" : "Bill"}`}>
+                Monthly Billing
+              </div>
               <div className="off-btn">
                 <label className="switch">
                   <input type="checkbox" />
-                  <span className="slider round"></span>
+                  <span
+                    onClick={HandletoggleButton}
+                    className="slider round"
+                  ></span>
                 </label>
               </div>
-              <div className="yearlbillin">Yearly Billing</div>
+              <div className={`${isOpen ? "yearlbillin" : "none"}`}>
+                Yearly Billing
+              </div>
               <div className="price_content__wrapper_monthly-billing__Discount-btn">
-                <div className="dsbtn">25% discount</div>
+                <div className="dsbtn">
+                  25% <span>discount</span>
+                </div>
               </div>
             </div>
+
             {/* </div> */}
             {/* ....... */}
             <div className="price_content__wrapper_line">
@@ -85,7 +103,9 @@ const Pricing = () => {
                 </div>
               </div>
               <div className="price_content__wrapper_iconbtncont_iconbtn">
-                <div className="trialbtn">Start my trial</div>
+                <Link href="#">
+                  <div className="trialbtn">Start my trial</div>
+                </Link>
               </div>
             </div>
           </div>
